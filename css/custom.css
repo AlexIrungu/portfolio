@@ -1,0 +1,28 @@
+/* Add hover effect to skills list items */
+.list-inline-item:hover {
+    color: #007bff; /* Change color on hover (you can use any color you prefer) */
+    cursor: pointer; /* Change cursor on hover */
+}
+
+/* Add color to skills section title */
+.resume-section#skills h2 {
+    color: #007bff; /* Title color */
+}
+
+/* Style the skills icons */
+.dev-icons i {
+    font-size: 24px; /* Adjust icon size */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Style the skills text */
+.dev-icons span {
+    display: inline-block;
+    margin-left: 10px; /* Adjust spacing between icon and text */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Style the skills text on hover */
+.list-inline-item:hover span {
+    color: #007bff; /* Change text color on hover */
+}
