@@ -26,3 +26,43 @@
 .list-inline-item:hover span {
     color: #007bff; /* Change text color on hover */
 }
+
+/* Add this to your existing CSS or create a new style section */
+
+.vertical-nav {
+    padding-top: 60px; /* Adjust as needed based on your design */
+}
+
+.vertical-nav .navbar-nav {
+    margin-bottom: 20px; /* Adjust as needed based on your design */
+}
+
+.vertical-nav .navbar-toggler {
+    order: -1;
+}
+
+.vertical-nav .navbar-collapse {
+    background-color: #343a40; /* Adjust as needed based on your design */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.vertical-nav .navbar-nav .nav-item {
+    text-align: center;
+}
+
+.vertical-nav .navbar-nav .nav-link {
+    padding: 10px;
+    color: #ffffff; /* Adjust as needed based on your design */
+}
+
+.vertical-nav .navbar-nav .nav-link:hover {
+    background-color: #1e2124; /* Adjust as needed based on your design */
+}
+
+/* Add this to your existing CSS or create a new style section */
+
+.smaller-image {
+    width: 80px; /* Adjust the width as needed */
+    height: 80px; /* Adjust the height as needed */
+}
