@@ -1,3 +1,9 @@
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 1000; /* Adjust the z-index as needed */
+}
+
 /* Add hover effect to skills list items */
 .list-inline-item:hover {
     color: #007bff; /* Change color on hover (you can use any color you prefer) */
