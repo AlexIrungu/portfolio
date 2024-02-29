@@ -19,7 +19,7 @@ function Home() {
 
           <div className="text-3xl font-bold mb-5">Software Developer - Alex Irungu</div>
           <p className="text-lg leading-relaxed mb-5">
-            I am experienced in building product websites, hybrid mobile applications, and backend development. My previous experience of working in large product-based companies as well as emerging startups will surely help in product development for companies at various stages.
+          With a proven track record in developing product websites, hybrid mobile applications, and robust backend systems, I bring a wealth of experience to the realm of software development. My professional journey encompasses substantial contributions to both large-scale product-based corporations and dynamic startups, providing me with a comprehensive understanding of the intricacies involved in product development across diverse organizational stages. I am poised to leverage this seasoned expertise to deliver impactful solutions and drive success for companies operating at various developmental phases.
           </p>
         </div>
 
