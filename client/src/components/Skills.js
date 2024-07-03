@@ -1,75 +1,72 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { FaCodepen, FaNetworkWired, FaDatabase, FaWind, FaPython, FaBook, FaCog, FaHashtag, FaHtml5, FaCss3Alt, FaNpm, FaGem, FaJsSquare, FaCube, FaTable } from 'react-icons/fa';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function Skills() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  const Checklist = ({ children }) => {
+    return <ul className="list-none">{children}</ul>;
+  };
+
+  const ChecklistItem = ({ children }) => {
+    return (
+      <li className="flex items-start mb-2" data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000">
+        <span className="mr-2">
+          <i className="fas fa-check text-green-500"></i>
+        </span>
+        {children}
+      </li>
+    );
+  };
+
+  const skills = [
+    { icon: FaCodepen, title: 'React.js', description: 'Building complex, scalable web applications.' },
+    { icon: FaNetworkWired, title: 'Node.js', description: 'Server-side applications with Node.js and Express.' },
+    { icon: FaDatabase, title: 'Databases', description: 'Working with MongoDB, PostgreSQL, MySQL.' },
+    { icon: FaWind, title: 'Tailwind CSS', description: 'Responsive UIs with Tailwind CSS.' },
+    { icon: FaPython, title: 'Python', description: 'Data analysis, machine learning with Python.' },
+    { icon: FaBook, title: 'Jupyter Notebook', description: 'Data analysis and visualization.' },
+    { icon: FaCog, title: 'Pandas', description: 'Data manipulation with Pandas.' },
+    { icon: FaHashtag, title: 'Matplotlib', description: 'Data visualization with Matplotlib.' },
+    { icon: FaHtml5, title: 'HTML', description: 'Semantic and accessible HTML.' },
+    { icon: FaCss3Alt, title: 'CSS', description: 'Styling with CSS.' },
+    { icon: FaNpm, title: 'npm', description: 'Managing JavaScript packages.' },
+    { icon: FaGem, title: 'Ruby', description: 'Web development with Ruby on Rails.' },
+{ icon: FaJsSquare, title: 'JavaScript', description: 'Interactive web applications with vanilla JavaScript and frameworks.' },
+{ icon: FaCube, title: 'NumPy', description: 'Numerical computing with Python.' },
+{ icon: FaTable, title: 'Tableau', description: 'Data visualization and business intelligence with Tableau.' },
+  ];
+
   return (
-    <div>
-      <div className="bg-gray-100 p-8">
-        <h2 className="text-3xl font-bold mb-5">Skills</h2>
-        <div className="mb-3">I enjoy diving into and learning new things. Here's a list of technologies I've worked with</div>
-        <ul className="flex flex-wrap list-none p-0">
-          <li className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-3 hover:scale-105 transition-transform duration-300">
-            <i className="fab fa-html5"></i> HTML5
-          </li>
-          <li className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-3 hover:scale-105 transition-transform duration-300">
-            <i className="fab fa-css3-alt"></i> CSS3
-          </li>
-          <li className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-3 hover:scale-105 transition-transform duration-300">
-            <i className="fab fa-js-square"></i> JavaScript ES6
-          </li>
-          <li className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-3 hover:scale-105 transition-transform duration-300">
-            <i className="fab fa-react"></i> React
-          </li>
-          <li className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-3 hover:scale-105 transition-transform duration-300">
-            <i className="fab fa-node"></i> Node.js
-          </li>
-          <li className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-3 hover:scale-105 transition-transform duration-300">
-            <i className="fab fa-npm"></i> npm
-          </li>
-          <li className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-3 hover:scale-105 transition-transform duration-300">
-            <i className="fab fa-php"></i> PHP
-          </li>
-          <li className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-3 hover:scale-105 transition-transform duration-300">
-            <i className="fab fa-ruby"></i> Ruby
-          </li>
-          <li className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-3 hover:scale-105 transition-transform duration-300">
-            <i className="fas fa-database"></i> PostgreSQL
-          </li>
-          <li className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-3 hover:scale-105 transition-transform duration-300">
-            <i className="fas fa-database"></i> SQLite
-          </li>
-          <li className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-3 hover:scale-105 transition-transform duration-300">
-            <i className="fab fa-python"></i> Python
-          </li>
-        </ul>
-        <div className="mb-3 mt-6">Workflow</div>
-        <ul className="list-none">
-          <li className="flex items-start mb-2">
-            <span className="mr-2">
-              <i className="fas fa-check"></i>
-            </span>
-            Frontend Web Design using React and JavaScript
-          </li>
-          <li className="flex items-start mb-2">
-            <span className="mr-2">
-              <i className="fas fa-check"></i>
-            </span>
-            Backend Web Design using Ruby / Ruby on Rails
-          </li>
-          <li className="flex items-start mb-2">
-            <span className="mr-2">
-              <i className="fas fa-check"></i>
-            </span>
-            Deployment and Maintaining of Sites
-          </li>
-          <li className="flex items-start mb-2">
-            <span className="mr-2">
-              <i className="fas fa-check"></i>
-            </span>
-            Looking At and Editing Existing Sites upon Request
-          </li>
-        </ul>
+    <div id="skills">
+    <section className="w-full py-24 md:py-32 lg:py-40 bg-gray-100 dark:bg-gray-800">
+      <div className="container px-4 md:px-6">
+        <div className="space-y-4 mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000">My Skills</h2>
+          <p className="text-gray-500 dark:text-gray-400" data-aos="fade-down" data-aos-delay="100" data-aos-duration="1000">
+            Here are some of the technologies I'm proficient in:
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          {skills.map((skill, index) => (
+            <div key={index} className="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-md transition-all hover:scale-105" data-aos="zoom-in" data-aos-delay={`${index * 100}`} data-aos-duration="1000">
+              <div className="flex items-center gap-4 mb-4">
+                <skill.icon className="w-8 h-8 text-blue-500" />
+                <h3 className="text-lg font-semibold">{skill.title}</h3>
+              </div>
+              <Checklist>
+                <ChecklistItem>{skill.description}</ChecklistItem>
+              </Checklist>
+            </div>
+          ))}
+        </div>
       </div>
+    </section>
     </div>
   );
 }

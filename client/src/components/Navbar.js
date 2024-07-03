@@ -1,49 +1,53 @@
 import React from 'react';
+import { Link } from 'react-scroll';
 
-import { Link } from 'react-router-dom';
-
-function Navbar() {
-
-
+const Navbar = ({ setIsOpen, isOpen }) => {
   return (
-    <div className='navbar'>
-      
-      <nav className="custom-nav bg-black text-white p-4">
-      <ul className="flex space-x-4">
-        <li>
-          <Link to='/' className="hover:text-gray-300">
-            Home
-          </Link>
-        </li>
-        {/* <li>
-          <Link to="/skills" className="hover:text-gray-300">
-            Skills
-          </Link>
-        </li> */}
-        <li>
-          <Link to="/projects" className="hover:text-gray-300">
-            Projects
-          </Link>
-        </li>
-        {/* <li>
-          <Link to="/interest" className="hover:text-gray-300">
-            Interest
-          </Link>
-        </li> */}
-        <li>
-          <Link to="/contact" className="hover:text-gray-300">
-            Contact
-          </Link>
-        </li>
-      </ul>
+    <nav className="bg-black text-white p-4">
+      <div className="container mx-auto flex justify-between items-center">
+        <div className="flex space-x-4">
+          <Link
+            to="home"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer"
+          >Home</Link>
+          <Link
+            to="skills"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer"
+          >Skills</Link>
+          <Link
+            to="projects"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer"
+          >Projects</Link>
+          <Link
+            to="contact"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer"
+          >Contact</Link>
+        </div>
+        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+
+      {/* Uncomment and update this part if you want to use React Scroll for the mobile menu as well */}
+      {
+      // isOpen && (
+      //   <div className="flex flex-col md:hidden">
+      //     <Link to="home" smooth={true} duration={500} className="hover:text-gray-300 transition duration-300 ease-in-out">Home</Link>
+      //     <Link to="projects" smooth={true} duration={500} className="hover:text-gray-300 transition duration-300 ease-in-out">Projects</Link>
+      //     <Link to="contact" smooth={true} duration={500} className="hover:text-gray-300 transition duration-300 ease-in-out">Contact</Link>
+      //   </div>
+      // )
+      }
     </nav>
-    </div>
-    
-    
   );
 };
-      
-       
-    
 
-export default Navbar
+export default Navbar;

@@ -4,8 +4,10 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Projects from './components/Projects';
 // import Skills from './components/Skills';
-import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
+// import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
 import Contact from './components/Contact';
+import Skills from './components/Skills';
+import Footer from './components/Footer'
 
 
 
@@ -14,11 +16,11 @@ function App() {
  
     <div className="App">
       <Navbar />
-      <Switch>
-        <Route path='/' exact component={Home} />
-        <Route path="/projects" exact component={Projects} />
-        <Route path='/contact' exact component={Contact} />
-      </Switch>
+      <Home />
+      <Skills />
+      <Projects />
+      <Contact />
+      <Footer />
     </div>
  
   );
