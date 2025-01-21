@@ -2,51 +2,61 @@ import React from "react";
 import { FaTwitter, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 function Footer() {
-    return (
-      <footer className="bg-black text-white p-4">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="flex space-x-4">
-            {/* Social icons unchanged for brevity */}
-            <a
-          href="https://twitter.com/_alexirungu"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-blue-400 flex items-center"
-        >
-          <FaTwitter className="text-xl mr-1" />
-        </a>
+   const socialLinks = [
+       {
+           icon: FaTwitter,
+           url: "https://twitter.com/_alexirungu",
+           hoverColor: "hover:text-blue-400"
+       },
+       {
+           icon: FaInstagram,
+           url: "https://instagram.com/_alexirungu", 
+           hoverColor: "hover:text-pink-500"
+       },
+       {
+           icon: FaLinkedin,
+           url: "https://linkedin.com/in/alexirungu/",
+           hoverColor: "hover:text-blue-600"
+       },
+       {
+           icon: FaGithub,
+           url: "https://github.com/AlexIrungu",
+           hoverColor: "hover:text-green-400"
+       }
+   ];
 
-        <a
-          href="https://instagram.com/_alexirungu"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-pink-500 flex items-center"
-        >
-          <FaInstagram className="text-xl mr-1" />
-        </a>
+   return (
+       <footer className="bg-gradient-to-b from-black to-gray-900 text-white py-8">
+           <div className="container mx-auto px-4">
+               <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                   {/* Social Links */}
+                   <div className="flex space-x-6">
+                       {socialLinks.map((social, index) => (
+                           <a
+                               key={index}
+                               href={social.url}
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               className={`transform transition-all duration-300 hover:scale-110 ${social.hoverColor}`}
+                           >
+                               <social.icon className="text-2xl" />
+                           </a>
+                       ))}
+                   </div>
 
-        <a
-          href="https://linkedin.com/in/alexirungu/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-blue-700 flex items-center"
-        >
-          <FaLinkedin className="text-xl mr-1" />
-        </a>
+                   {/* Copyright */}
+                   <div className="text-center md:text-right">
+                       <p className="text-gray-400">
+                           &copy; {new Date().getFullYear()} Alex Irungu
+                       </p>
+                       <p className="text-sm text-gray-500 mt-1">
+                           Built with React & Tailwind CSS
+                       </p>
+                   </div>
+               </div>
+           </div>
+       </footer>
+   );
+}
 
-        <a
-          href="https://github.com/AlexIrungu"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-green-500 flex items-center"
-        >
-          <FaGithub className="text-xl mr-1" />
-        </a>
-          </div>
-          <p>&copy; 2023 Alex Irungu</p>
-        </div>
-      </footer>
-    );
-  }
-
-export default Footer
+export default Footer;

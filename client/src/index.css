@@ -13,13 +13,44 @@ code {
 } */
 
 /* src/index.css */
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
 
 body {
-  /* font-family: 'Roboto', sans-serif; */
-  font-family: 'Libre Baskerville', serif;
+  margin: 0;
+  padding: 0;
+  font-family: 'Cormorant Garamond', serif;  /* Primary elegant font */
+  background-color: #0a192f;
+  min-height: 100vh;
+  color: white;
+  font-size: 1.125rem; /* Slightly larger base font size for better readability */
 }
 
+#root {
+  min-height: 100vh;
+  background-color: #0a192f;
+}
+
+/* Elegant headings */
+.elegant-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Navigation text */
+.nav-link {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+/* Brand text */
+.brand-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
 
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
