@@ -7,6 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'cal-poly': '#254D32',
+        'moss': '#8A9B68',
+        'vanilla': '#DBD8AE',
+        'snow': '#F7F0F0',
+      },
       animation: {
         fadeIn: 'fadeIn 0.5s ease-in-out forwards',
       },

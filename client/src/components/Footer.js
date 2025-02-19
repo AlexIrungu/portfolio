@@ -6,27 +6,27 @@ function Footer() {
        {
            icon: FaTwitter,
            url: "https://twitter.com/_alexirungu",
-           hoverColor: "hover:text-blue-400"
+           hoverColor: "hover:text-moss"
        },
        {
            icon: FaInstagram,
            url: "https://instagram.com/_alexirungu", 
-           hoverColor: "hover:text-pink-500"
+           hoverColor: "hover:text-vanilla"
        },
        {
            icon: FaLinkedin,
            url: "https://linkedin.com/in/alexirungu/",
-           hoverColor: "hover:text-blue-600"
+           hoverColor: "hover:text-snow"
        },
        {
            icon: FaGithub,
            url: "https://github.com/AlexIrungu",
-           hoverColor: "hover:text-green-400"
+           hoverColor: "hover:text-moss"
        }
    ];
 
    return (
-       <footer className="bg-gradient-to-b from-black to-gray-900 text-white py-8">
+       <footer className="bg-gradient-to-b from-cal-poly to-cal-poly text-snow py-8">
            <div className="container mx-auto px-4">
                <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                    {/* Social Links */}
@@ -39,19 +39,17 @@ function Footer() {
                                rel="noopener noreferrer"
                                className={`transform transition-all duration-300 hover:scale-110 ${social.hoverColor}`}
                            >
-                               <social.icon className="text-2xl" />
+                               <social.icon className="text-2xl text-vanilla" />
                            </a>
                        ))}
                    </div>
 
                    {/* Copyright */}
                    <div className="text-center md:text-right">
-                       <p className="text-gray-400">
+                       <p className="text-moss">
                            &copy; {new Date().getFullYear()} Alex Irungu
                        </p>
-                       <p className="text-sm text-gray-500 mt-1">
-                           Built with React & Tailwind CSS
-                       </p>
+                       
                    </div>
                </div>
            </div>

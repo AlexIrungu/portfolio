@@ -24,7 +24,7 @@ const Navbar = () => {
   }, [prevScrollPos]);
 
   return (
-    <nav className={`bg-gradient-to-r from-gray-900 to-black text-white shadow-lg fixed w-full z-50 transition-transform duration-300 ${
+    <nav className={`bg-vanilla text-cal-poly shadow-lg fixed w-full z-50 transition-transform duration-300 ${
       visible ? 'translate-y-0' : '-translate-y-full'
     }`}>
       <div className="container mx-auto px-4">
@@ -36,7 +36,7 @@ const Navbar = () => {
               alt="Portfolio Logo"
               className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 p-1"
             />
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <span className="text-xl font-bold bg-cal-poly bg-clip-text text-transparent">
               Alex Irungu
             </span>
           </div>
@@ -47,7 +47,7 @@ const Navbar = () => {
               to="/"
               smooth={true}
               duration={500}
-              className="nav-link text-gray-300 hover:text-white transition-colors duration-300 py-2 relative cursor-pointer group"
+              className="nav-link text-cal-poly hover:text-moss transition-colors duration-300 py-2 relative cursor-pointer group"
             >
               <span>Home</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
@@ -56,7 +56,7 @@ const Navbar = () => {
               to="skills"
               smooth={true}
               duration={500}
-              className="nav-link text-gray-300 hover:text-white transition-colors duration-300 py-2 relative cursor-pointer group"
+              className="nav-link text-cal-poly hover:text-moss transition-colors duration-300 py-2 relative cursor-pointer group"
             >
               <span>Skills</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
@@ -65,7 +65,7 @@ const Navbar = () => {
               to="projects"
               smooth={true}
               duration={500}
-              className="nav-link text-gray-300 hover:text-white transition-colors duration-300 py-2 relative cursor-pointer group"
+              className="nav-link text-cal-poly hover:text-moss transition-colors duration-300 py-2 relative cursor-pointer group"
             >
               <span>Projects</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
@@ -74,7 +74,7 @@ const Navbar = () => {
               to="contact"
               smooth={true}
               duration={500}
-              className="px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 transition-colors duration-300 cursor-pointer"
+              className="px-4 py-2 rounded-lg text-cal-poly hover:bg-moss transition-colors duration-300 cursor-pointer"
             >
               Contact
             </Link>
