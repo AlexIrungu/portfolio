@@ -59,3 +59,40 @@ This project is open source and available under the [MIT License](LICENSE).
 
 For any inquiries, please reach out to Alex Irungu via email or through social media platforms.
 ```
+
+// EmailJS Configuration Guide
+
+// 1. Template Variables
+The template uses the following variables that map to your form fields:
+- {{user_name}} - from the name input field
+- {{user_email}} - from the email input field
+- {{subject}} - from the subject input field
+- {{message}} - from the message textarea
+- {{to_name}} - this can be set as a default value in EmailJS (your name)
+
+// 2. EmailJS Setup Steps
+1. Log in to your EmailJS account
+2. Navigate to "Email Templates" section
+3. Click "Create New Template"
+4. Give your template a name (e.g., "Contact Form Template")
+5. Paste the HTML code from the artifact
+6. Save the template
+7. Note the Template ID (it should look like "template_4txywfm")
+
+// 3. Update Your React Component
+Make sure your EmailJS configuration in your React component matches:
+- Service ID: service_b2bid8p (from your existing code)
+- Template ID: Your template ID from step 6 above
+- Public Key: 0g4-XhSrtkVk_WbKh (from your existing code)
+
+// 4. Form Field Names
+Ensure your form field names match the EmailJS template variables:
+- <input name="user_name" ... />
+- <input name="user_email" ... />
+- <input name="subject" ... />
+- <textarea name="message" ... />
+
+// Optional: You can also add a hidden field for the recipient name:
+// <input type="hidden" name="to_name" value="Alex Muiruri" />
+
+// The keys in your form's name attributes must match exactly with the template variables.

@@ -34,7 +34,7 @@ const Navbar = () => {
             <img 
               src={profile}
               alt="Portfolio Logo"
-              className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 p-1"
+              className="h-8 w-8 rounded-full bg-gradient-to-r from-cal-poly to-moss p-1"
             />
             <span className="text-xl font-bold bg-cal-poly bg-clip-text text-transparent">
               Alex Irungu
@@ -44,37 +44,45 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link
-              to="/"
+              to="home"
+              spy={true}
               smooth={true}
+              offset={-70}
               duration={500}
               className="nav-link text-cal-poly hover:text-moss transition-colors duration-300 py-2 relative cursor-pointer group"
             >
               <span>Home</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-moss transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
               to="skills"
+              spy={true}
               smooth={true}
+              offset={-70}
               duration={500}
               className="nav-link text-cal-poly hover:text-moss transition-colors duration-300 py-2 relative cursor-pointer group"
             >
               <span>Skills</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-moss transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
               to="projects"
+              spy={true}
               smooth={true}
+              offset={-70}
               duration={500}
               className="nav-link text-cal-poly hover:text-moss transition-colors duration-300 py-2 relative cursor-pointer group"
             >
               <span>Projects</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-moss transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
               to="contact"
+              spy={true}
               smooth={true}
+              offset={-70}
               duration={500}
-              className="px-4 py-2 rounded-lg text-cal-poly hover:bg-moss transition-colors duration-300 cursor-pointer"
+              className="px-4 py-2 rounded-lg bg-cal-poly text-snow hover:bg-moss transition-colors duration-300 cursor-pointer"
             >
               Contact
             </Link>
@@ -82,8 +90,9 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors duration-300"
+            className="md:hidden p-2 rounded-lg hover:bg-moss hover:text-snow transition-colors duration-300"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
           >
             {isOpen ? (
               <X className="w-6 h-6" />
@@ -95,40 +104,48 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden bg-gray-900 absolute w-full left-0">
+          <div className="md:hidden bg-vanilla absolute w-full left-0 shadow-lg">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <Link
                 to="home"
+                spy={true}
                 smooth={true}
+                offset={-70}
                 duration={500}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors duration-300 cursor-pointer"
+                className="block px-3 py-2 rounded-lg text-base font-medium text-cal-poly hover:bg-moss hover:text-snow transition-colors duration-300 cursor-pointer"
                 onClick={() => setIsOpen(false)}
               >
                 Home
               </Link>
               <Link
                 to="skills"
+                spy={true}
                 smooth={true}
+                offset={-70}
                 duration={500}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors duration-300 cursor-pointer"
+                className="block px-3 py-2 rounded-lg text-base font-medium text-cal-poly hover:bg-moss hover:text-snow transition-colors duration-300 cursor-pointer"
                 onClick={() => setIsOpen(false)}
               >
                 Skills
               </Link>
               <Link
                 to="projects"
+                spy={true}
                 smooth={true}
+                offset={-70}
                 duration={500}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors duration-300 cursor-pointer"
+                className="block px-3 py-2 rounded-lg text-base font-medium text-cal-poly hover:bg-moss hover:text-snow transition-colors duration-300 cursor-pointer"
                 onClick={() => setIsOpen(false)}
               >
                 Projects
               </Link>
               <Link
                 to="contact"
+                spy={true}
                 smooth={true}
+                offset={-70}
                 duration={500}
-                className="block px-3 py-2 rounded-lg text-base font-medium bg-blue-500 hover:bg-blue-600 transition-colors duration-300 cursor-pointer"
+                className="block px-3 py-2 rounded-lg text-base font-medium bg-cal-poly text-snow hover:bg-moss transition-colors duration-300 cursor-pointer"
                 onClick={() => setIsOpen(false)}
               >
                 Contact

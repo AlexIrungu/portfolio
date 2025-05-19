@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { FaEnvelope, FaPhone, FaClock } from 'react-icons/fa';
+import { PhoneIcon, ClockIcon, MapPinIcon } from "lucide-react";
 import { Alert, AlertDescription } from "./ui/alert";
 import { Loader2 } from "lucide-react";
 import emailjs from '@emailjs/browser';
@@ -7,6 +7,7 @@ import emailjs from '@emailjs/browser';
 function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
@@ -20,15 +21,16 @@ function Contact() {
   
     try {
       await emailjs.sendForm(
-        'service_b2bid8p', // Your Service ID from the screenshot
-        'template_4txywfm', // You need to create a template in EmailJS
-        formRef.current, // Reference to the form
-        '0g4-XhSrtkVk_WbKh' // Your public key (should match the one in App.js)
+        'service_b2bid8p',
+        'template_4txywfm',
+        formRef.current,
+        '0g4-XhSrtkVk_WbKh'
       );
       
       // Reset form
       setName("");
       setEmail("");
+      setSubject("");
       setMessage("");
       setShowNotification(true);
     } catch (error) {
@@ -37,17 +39,21 @@ function Contact() {
       setShowNotification(true);
     } finally {
       setIsLoading(false);
-      setTimeout(() => setShowNotification(false), 3000);
+      setTimeout(() => setShowNotification(false), 5000);
     }
   };
 
   return (
-    <div id="contact" className="bg-snow py-20 relative">
-      <div className="container mx-auto px-4 max-w-4xl">
+    <section id="contact" className="py-24 bg-snow relative overflow-hidden">
+      {/* Background design elements */}
+      <div className="absolute left-0 top-0 w-1/3 h-64 bg-moss/10 rounded-r-full blur-3xl z-0"></div>
+      <div className="absolute right-0 bottom-0 w-1/3 h-64 bg-cal-poly/10 rounded-l-full blur-3xl z-0"></div>
+      
+      <div className="container mx-auto px-4 max-w-6xl relative z-10">
         {showNotification && (
-          <div className="absolute top-4 right-4 left-4 md:left-auto md:w-96 transition-all duration-300 ease-in-out transform translate-y-0">
-            <Alert className={`${isError ? "bg-red-600" : "bg-moss"} text-snow border-none shadow-lg`}>
-              <AlertDescription>
+          <div className="fixed top-6 right-6 left-6 md:left-auto md:w-96 transition-all duration-300 ease-in-out transform">
+            <Alert className={`${isError ? "bg-red-600" : "bg-moss"} text-snow border-none shadow-xl rounded-lg`}>
+              <AlertDescription className="flex items-center text-sm font-medium">
                 {isLoading ? "Sending your message..." : 
                  isError ? "Failed to send message. Please try again." : 
                  "Message sent successfully!"}
@@ -56,115 +62,176 @@ function Contact() {
           </div>
         )}
 
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
-          <span className="text-cal-poly">
-            Let's Collaborate
+        <div className="text-center mb-16">
+          <span className="px-4 py-1.5 bg-moss/20 rounded-full text-sm font-medium text-moss inline-block mb-3">
+            Get In Touch
           </span>
-        </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-cal-poly">
+            Let's Work Together
+          </h2>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <form
-            ref={formRef}
-            className="bg-vanilla rounded-xl p-6 shadow-2xl"
-            onSubmit={handleSubmit}
-          >
-            <div className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-cal-poly mb-2">Name</label>
-                <input
-                  type="text"
-                  name="user_name" // Important: Add name attributes for EmailJS
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="w-full px-4 py-3 bg-snow border border-moss rounded-lg focus:outline-none focus:ring-2 focus:ring-cal-poly text-cal-poly transition-all duration-200"
-                  placeholder="Your Name"
-                  disabled={isLoading}
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-cal-poly mb-2">Email</label>
-                <input
-                  type="email"
-                  name="user_email" // Important: Add name attributes for EmailJS
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-3 bg-snow border border-moss rounded-lg focus:outline-none focus:ring-2 focus:ring-cal-poly text-cal-poly transition-all duration-200"
-                  placeholder="Your Email"
-                  disabled={isLoading}
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-cal-poly mb-2">Message</label>
-                <textarea
-                  name="message" // Important: Add name attributes for EmailJS
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  rows="4"
-                  className="w-full px-4 py-3 bg-snow border border-moss rounded-lg focus:outline-none focus:ring-2 focus:ring-cal-poly text-cal-poly transition-all duration-200"
-                  placeholder="Your Message"
-                  disabled={isLoading}
-                  required
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="w-full py-3 bg-moss text-snow rounded-lg font-bold transition-all duration-300 hover:scale-105 hover:bg-cal-poly disabled:opacity-70 disabled:hover:scale-100 flex items-center justify-center space-x-2"
-              >
-                {isLoading ? (
-                  <>
-                    <Loader2 className="w-5 h-5 animate-spin" />
-                    <span>Sending...</span>
-                  </>
-                ) : (
-                  <span>Send Message</span>
-                )}
-              </button>
-            </div>
-          </form>
-
-          {/* Contact Info */}
-          <div className="bg-cal-poly rounded-xl p-6 shadow-2xl">
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-xl font-bold mb-4 text-vanilla">
-                  Contact Information
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <FaEnvelope className="text-moss" />
-                    <span className="text-snow">aleaxmuiruri@gmail.com</span>
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+          {/* Contact Information */}
+          <div className="lg:col-span-2 space-y-8">
+            <div className="bg-white rounded-xl p-8 shadow-lg border border-moss/10 transition-all duration-300 hover:shadow-xl">
+              <h3 className="text-2xl font-bold text-cal-poly mb-6">Contact Information</h3>
+              
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-moss/10 rounded-full flex items-center justify-center">
+                    <PhoneIcon className="h-5 w-5 text-moss" />
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <FaPhone className="text-moss" />
-                    <span className="text-snow">+254719571601</span>
+                  <div>
+                    <div className="text-sm text-cal-poly/70">Email</div>
+                    <a href="mailto:aleaxmuiruri@gmail.com" className="text-cal-poly font-medium hover:text-moss transition-all duration-300">
+                      aleaxmuiruri@gmail.com
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-moss/10 rounded-full flex items-center justify-center">
+                    <PhoneIcon className="h-5 w-5 text-moss" />
+                  </div>
+                  <div>
+                    <div className="text-sm text-cal-poly/70">Phone</div>
+                    <a href="tel:+254719571601" className="text-cal-poly font-medium hover:text-moss transition-all duration-300">
+                      +254 719 571 601
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-moss/10 rounded-full flex items-center justify-center">
+                    <MapPinIcon className="h-5 w-5 text-moss" />
+                  </div>
+                  <div>
+                    <div className="text-sm text-cal-poly/70">Location</div>
+                    <div className="text-cal-poly font-medium">
+                      Nairobi, Kenya
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <div>
-                <h3 className="text-xl font-bold mb-4 text-vanilla">
-                  Working Hours
-                </h3>
-                <div className="space-y-2 text-snow">
-                  <div className="flex items-center space-x-3">
-                    <FaClock className="text-moss" />
-                    <span>Monday - Friday: 9 am - 5 pm</span>
+            </div>
+            
+            <div className="bg-white rounded-xl p-8 shadow-lg border border-moss/10 transition-all duration-300 hover:shadow-xl">
+              <h3 className="text-2xl font-bold text-cal-poly mb-4">Working Hours</h3>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-moss/10 rounded-full flex items-center justify-center">
+                    <ClockIcon className="h-5 w-5 text-moss" />
                   </div>
-                  <div className="pl-7">Weekends: 10 am - 1 pm</div>
+                  <div>
+                    <div className="text-sm text-cal-poly/70">Weekdays</div>
+                    <div className="text-cal-poly font-medium">Monday - Friday: 9 am - 5 pm</div>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 opacity-0">
+                    {/* Spacer for alignment */}
+                  </div>
+                  <div>
+                    <div className="text-sm text-cal-poly/70">Weekends</div>
+                    <div className="text-cal-poly font-medium">Saturday - Sunday: 10 am - 1 pm</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          
+          {/* Contact Form */}
+          <div className="lg:col-span-3">
+            <div className="bg-white rounded-xl p-8 shadow-lg border border-moss/10 h-full transition-all duration-300 hover:shadow-xl">
+              <h3 className="text-2xl font-bold text-cal-poly mb-6">Send Me a Message</h3>
+              
+              <form 
+                ref={formRef}
+                className="space-y-6"
+                onSubmit={handleSubmit}
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-cal-poly font-medium mb-2 text-sm">Name</label>
+                    <input 
+                      type="text" 
+                      id="name"
+                      name="user_name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className="w-full px-4 py-3 rounded-lg border border-moss/30 focus:border-moss focus:outline-none focus:ring-1 focus:ring-moss bg-vanilla/5 transition-all duration-200"
+                      placeholder="Your name"
+                      disabled={isLoading}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-cal-poly font-medium mb-2 text-sm">Email</label>
+                    <input 
+                      type="email" 
+                      id="email"
+                      name="user_email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full px-4 py-3 rounded-lg border border-moss/30 focus:border-moss focus:outline-none focus:ring-1 focus:ring-moss bg-vanilla/5 transition-all duration-200"
+                      placeholder="Your email"
+                      disabled={isLoading}
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="subject" className="block text-cal-poly font-medium mb-2 text-sm">Subject</label>
+                  <input 
+                    type="text" 
+                    id="subject"
+                    name="subject"
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
+                    className="w-full px-4 py-3 rounded-lg border border-moss/30 focus:border-moss focus:outline-none focus:ring-1 focus:ring-moss bg-vanilla/5 transition-all duration-200"
+                    placeholder="Message subject"
+                    disabled={isLoading}
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-cal-poly font-medium mb-2 text-sm">Message</label>
+                  <textarea 
+                    id="message"
+                    name="message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    rows="6" 
+                    className="w-full px-4 py-3 rounded-lg border border-moss/30 focus:border-moss focus:outline-none focus:ring-1 focus:ring-moss bg-vanilla/5 transition-all duration-200"
+                    placeholder="Your message"
+                    disabled={isLoading}
+                    required
+                  ></textarea>
+                </div>
+                
+                <button 
+                  type="submit" 
+                  disabled={isLoading}
+                  className="w-full py-4 bg-cal-poly text-snow hover:bg-moss rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-70 disabled:hover:scale-100 flex items-center justify-center"
+                >
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <span>Send Message</span>
+                  )}
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
