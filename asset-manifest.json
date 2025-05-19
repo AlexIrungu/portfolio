@@ -1,21 +1,23 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.ddd20c8f.css",
-    "main.js": "/portfolio/static/js/main.e9b5ee67.js",
-    "static/js/453.258b012d.chunk.js": "/portfolio/static/js/453.258b012d.chunk.js",
+    "main.css": "/portfolio/static/css/main.1b99f6cf.css",
+    "main.js": "/portfolio/static/js/main.65f80e21.js",
+    "static/js/453.419a5d54.chunk.js": "/portfolio/static/js/453.419a5d54.chunk.js",
+    "static/media/jambohouse.png": "/portfolio/static/media/jambohouse.77073721ada7124c07f7.png",
     "static/media/danilweb.png": "/portfolio/static/media/danilweb.3a2d83c5a9ee376a103e.png",
     "static/media/stellarweb.png": "/portfolio/static/media/stellarweb.0c93bdff853bbfd9318b.png",
+    "static/media/savannah.png": "/portfolio/static/media/savannah.7084ee2cb70161624b01.png",
     "static/media/dadaweb.png": "/portfolio/static/media/dadaweb.5c58ca2dc98bbcea4504.png",
     "static/media/luna.png": "/portfolio/static/media/luna.d6d2ac7a22cf7982d6a6.png",
     "static/media/communicareweb.png": "/portfolio/static/media/communicareweb.8461ae9b47866b97c562.png",
     "static/media/profilepic1.jpeg": "/portfolio/static/media/profilepic1.8849894dd21961528cb5.jpeg",
     "index.html": "/portfolio/index.html",
-    "main.ddd20c8f.css.map": "/portfolio/static/css/main.ddd20c8f.css.map",
-    "main.e9b5ee67.js.map": "/portfolio/static/js/main.e9b5ee67.js.map",
-    "453.258b012d.chunk.js.map": "/portfolio/static/js/453.258b012d.chunk.js.map"
+    "main.1b99f6cf.css.map": "/portfolio/static/css/main.1b99f6cf.css.map",
+    "main.65f80e21.js.map": "/portfolio/static/js/main.65f80e21.js.map",
+    "453.419a5d54.chunk.js.map": "/portfolio/static/js/453.419a5d54.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ddd20c8f.css",
-    "static/js/main.e9b5ee67.js"
+    "static/css/main.1b99f6cf.css",
+    "static/js/main.65f80e21.js"
   ]
 }
